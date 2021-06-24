@@ -1,17 +1,29 @@
 package com.bridgelabz.linkedlist;
 
 public class LinkedListOperations {
+
 	// Represent the head and tail of the singly linked list
-	Node head;
-	Node tail;
+	INode head;
+	INode tail;
 	int size;
 
-	public void addNode(Node newNode) {
+	public void addNodeInBeginnig(Node newNode) {
 		if (head == null) {
 			head = newNode;
 			tail = newNode;
 		} else {
-			tail.next = newNode;
+			INode temp = head;
+			head = newNode;
+			head.setNext(temp);
+		}
+	}
+
+	public void addNodeAtEnd(Node newNode) {
+		if (head == null) {
+			head = newNode;
+			tail = newNode;
+		} else {
+			tail.setNext(newNode);
 			tail = newNode;
 		}
 		size++;
@@ -37,11 +49,18 @@ public class LinkedListOperations {
 		size++;
 	}
 
+	public void deleteNodeFromBeginning() {
+		if (head == null)
+			System.out.println("Linked List is empty!");
+		else
+			head = head.getNext();
+	}
+
 	public void displayNode() {
 		INode current = head;
 		if (head == null)
 			System.out.println("Linked List is empty");
-		System.out.print("Nodes are: ");
+		System.out.print("Linked list after deleting first node: ");
 		while (current != null) {
 			if (current.getNext() != null) {
 				System.out.print(current.getKey() + " -> ");
@@ -52,4 +71,5 @@ public class LinkedListOperations {
 			}
 		}
 	}
+
 }
