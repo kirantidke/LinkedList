@@ -1,11 +1,12 @@
 package com.bridgelabz.linkedlist;
 
 public class LinkedListOperations {
-	// Represent the head and tail of the linked list
-	public Node head = null;
-	public Node tail = null;
+	// Represent the head and tail of the singly linked list
+	Node head;
+	Node tail;
+	int size;
 
-	public Node addNode(Node newNode) {
+	public void addNode(Node newNode) {
 		if (head == null) {
 			head = newNode;
 			tail = newNode;
@@ -13,14 +14,34 @@ public class LinkedListOperations {
 			tail.next = newNode;
 			tail = newNode;
 		}
-		return head;
+		size++;
+	}
+
+	public void addNodeInMiddle(Node newNode) {
+
+		if (head == null) {
+			head = newNode;
+			tail = newNode;
+		} else {
+			INode temp, current;
+			int count = (size % 2 == 0) ? (size / 2) : ((size + 1) / 2);
+			temp = head;
+			current = null;
+			for (int i = 0; i < count; i++) {
+				current = temp;
+				temp = temp.getNext();
+			}
+			current.setNext(newNode);
+			newNode.setNext(temp);
+		}
+		size++;
 	}
 
 	public void displayNode() {
 		INode current = head;
 		if (head == null)
 			System.out.println("Linked List is empty");
-		System.out.print("Linked nodes: ");
+		System.out.print("Nodes are: ");
 		while (current != null) {
 			if (current.getNext() != null) {
 				System.out.print(current.getKey() + " -> ");

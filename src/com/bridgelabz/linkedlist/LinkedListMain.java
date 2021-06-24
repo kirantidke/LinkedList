@@ -10,12 +10,9 @@ public class LinkedListMain {
 	    Node<Integer> thirdNode = new Node<>(70);
 
 	    operations.addNode(firstNode);
-	    //operations.displayNode(head);
-	    
-	    operations.addNode(secondNode);
-	    //operations.displayNode(head);
-	  
 	    operations.addNode(thirdNode);
+	    
+	    operations.addNodeInMiddle(secondNode);
 	    
 	    operations.displayNode();
 	  }
