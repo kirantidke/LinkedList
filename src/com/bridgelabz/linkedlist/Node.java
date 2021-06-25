@@ -114,6 +114,34 @@ public class Node {
 		node.nextNode = current;
 		previous.nextNode = node;
 	}
+	void deleteNode(int position)
+    {
+        // If linked list is empty
+        if (head == null)
+            return;
+ 
+        // Store head node
+        Node temp = head;
+ 
+        // If head needs to be removed
+        if (position == 0)
+        {
+            head = temp.nextNode;   // Change head
+            return;
+        }
+ 
+        // Find previous node of the node to be deleted
+        for (int i=0; temp!=null && i<position-1; i++)
+            temp = temp.nextNode;
+ 
+        // If position is more than number of nodes
+        if (temp == null || temp.nextNode == null)
+            return;
+        Node next = temp.nextNode.nextNode;
+        
+        temp.nextNode = next;  // Unlink the deleted node from list
+    }
+ 
 
 	public void displayData() {
 		Node current = head;

@@ -10,5 +10,8 @@ public class LinkedListMain {
 		//list.searchNode(30);
 		list.insertNth(40, 2);
 		list.displayData();
+		list.deleteNode(2);
+		list.displayData();
+		
 	}
 }
