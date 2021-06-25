@@ -92,7 +92,7 @@ public class Node {
 			}
 		}
 		if (flag)
-			System.out.println("30 is present in the list at the position : " + i);
+			System.out.println(" 30 is present in the list at the position : " + i);
 		else
 			System.out.println("Element is not present in the list");
 	}

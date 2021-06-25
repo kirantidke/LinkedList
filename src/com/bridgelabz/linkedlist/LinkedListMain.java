@@ -7,6 +7,6 @@ public class LinkedListMain {
 		list.addNode(30);
 		list.addNode(70);
 		list.displayData();
-		 list.searchNode(30);
+		list.searchNode(30);
 	}
 }
