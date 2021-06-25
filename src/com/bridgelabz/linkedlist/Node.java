@@ -56,11 +56,10 @@ public class Node {
 	public void deleteFromEnd() {
 		if (head == null) {
 			System.out.println("List is empty");
-		} 
-		else {
+		} else {
 			if (head != tail) {
 				Node current = head;
-				
+
 				while (current.nextNode != tail) {
 					current = current.nextNode;
 				}
@@ -72,29 +71,48 @@ public class Node {
 		}
 	}
 
-	// searchNode() will search for a given node in the list
-	public void searchNode(int data) {
-		Node current = head;
-		int i = 1;
-		boolean flag = false;
-		// Checks whether list is empty
-		if (head == null) {
-			System.out.println("List is empty");
-		} else {
-			while (current != null) {
-				// Compares node to be found with each node present in the list
-				if (current.data == data) {
-					flag = true;
-					break;
-				}
-				i++;
-				current = current.nextNode;
+	// function to insert a Node at required position
+
+	public void insertNth(int data, int position) {
+		// create new node.
+		Node node = new Node();
+		node.data = data;
+		node.nextNode = null;
+
+		if (this.head == null) {
+		
+			// if head is null and position is zero then exit.
+			if (position != 0) {
+				return;
+			} else { // node set to the head.
+				this.head = node;
 			}
 		}
-		if (flag)
-			System.out.println(" 30 is present in the list at the position : " + i);
-		else
-			System.out.println("Element is not present in the list");
+
+		if (head != null && position == 0) {
+			node.nextNode = this.head;
+			this.head = node;
+			return;
+		}
+
+		Node current = this.head;
+		Node previous = null;
+
+		int i = 0;
+
+		while (i < position) {
+			previous = current;
+			current = current.nextNode;
+
+			if (current == null) {
+				break;
+			}
+
+			i++;
+		}
+
+		node.nextNode = current;
+		previous.nextNode = node;
 	}
 
 	public void displayData() {
