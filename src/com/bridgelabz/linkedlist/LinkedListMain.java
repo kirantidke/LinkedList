@@ -7,20 +7,13 @@
 package com.bridgelabz.linkedlist;
 
 public class LinkedListMain {
-
-	public static void main(String[] args) {
-		LinkedListOperations operations = new LinkedListOperations();
-
-		Node<Integer> firstNode = new Node<>(56);
-		Node<Integer> secondNode = new Node<>(30);
-		Node<Integer> thirdNode = new Node<>(70);
-
-		operations.addNodeInBeginnig(firstNode);
-		operations.addNodeAtEnd(thirdNode);
-		operations.addNodeInMiddle(secondNode);
-		operations.displayNode();
-
-		operations.deleteNodeFromBeginning();
-		operations.displayNode();
+		public static void main(String[] args) {
+			Node list = new Node();
+			list.addNode(1);
+			list.addNode(2);
+			list.addNode(3);
+			list.displayData();
+			list.deleteFromEnd();
+			list.displayData();
+		}
 	}
-}
