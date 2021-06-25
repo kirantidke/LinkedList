@@ -8,9 +8,13 @@ public class LinkedListMain {
 		list.addNode(70);
 		list.displayData();
 		//list.searchNode(30);
+		System.out.println("after adding 40 after 30");
 		list.insertNth(40, 2);
 		list.displayData();
-		list.deleteNode(2);
+		//list.deleteNode(2);
+		//list.displayData();
+		System.out.println("after sorting");
+		list.sortList();
 		list.displayData();
 		
 	}

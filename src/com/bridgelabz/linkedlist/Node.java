@@ -1,5 +1,7 @@
 package com.bridgelabz.linkedlist;
 
+import com.bridgelabz.datastructure.stack.LinkedListMain.Node;
+
 public class Node {
 	int size;
 	int data;
@@ -80,7 +82,7 @@ public class Node {
 		node.nextNode = null;
 
 		if (this.head == null) {
-		
+
 			// if head is null and position is zero then exit.
 			if (position != 0) {
 				return;
@@ -114,34 +116,65 @@ public class Node {
 		node.nextNode = current;
 		previous.nextNode = node;
 	}
-	void deleteNode(int position)
-    {
-        // If linked list is empty
-        if (head == null)
-            return;
- 
-        // Store head node
-        Node temp = head;
- 
-        // If head needs to be removed
-        if (position == 0)
-        {
-            head = temp.nextNode;   // Change head
-            return;
-        }
- 
-        // Find previous node of the node to be deleted
-        for (int i=0; temp!=null && i<position-1; i++)
-            temp = temp.nextNode;
- 
-        // If position is more than number of nodes
-        if (temp == null || temp.nextNode == null)
-            return;
-        Node next = temp.nextNode.nextNode;
-        
-        temp.nextNode = next;  // Unlink the deleted node from list
-    }
- 
+
+	void deleteNode(int position) {
+		// If linked list is empty
+		if (head == null)
+			return;
+
+		// Store head node
+		Node temp = head;
+
+		// If head needs to be removed
+		if (position == 0) {
+			head = temp.nextNode; // Change head
+			return;
+		}
+
+		// Find previous node of the node to be deleted
+		for (int i = 0; temp != null && i < position - 1; i++)
+			temp = temp.nextNode;
+
+		// If position is more than number of nodes
+		if (temp == null || temp.nextNode == null)
+			return;
+		Node next = temp.nextNode.nextNode;
+
+		temp.nextNode = next; // Unlink the deleted node from list
+	}
+
+	public void sortList() {
+
+		// Node current will point to head
+		Node current = head, index = null;
+
+		int temp;
+
+		if (head == null) {
+			return;
+		} 
+		else {
+			while (current != null) {
+				// Node index will point to node next to
+				// current
+				index = current.nextNode;
+
+				while (index != null) {
+					// If current node's data is greater
+					// than index's node data, swap the data
+					// between them
+					if (current.data > index.data) {
+						temp = current.data;
+						current.data = index.data;
+						index.data = temp;
+					}
+
+					index = index.nextNode;
+				}
+				current = current.nextNode;
+			}
+		}
+	}
 
 	public void displayData() {
 		Node current = head;
